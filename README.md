@@ -1,6 +1,6 @@
 # CodeNexus – Online Exam Cheating Detector
 
-## 📌 Project Overview
+## Project Overview
 
 CodeNexus is a secure online examination system designed to conduct coding and multiple-choice examinations with basic online proctoring features.
 
@@ -8,7 +8,7 @@ The system combines a web-based frontend, Spring Boot backend, MySQL database, c
 
 ---
 
-## 🎯 Objectives
+## Objectives
 
 - Provide secure student login.
 - Conduct online coding examinations.
@@ -22,15 +22,15 @@ The system combines a web-based frontend, Spring Boot backend, MySQL database, c
 
 ---
 
-## ✨ Features
+##  Features
 
-### 🔐 Secure Login
+### Secure Login
 
 - Student email and password authentication.
 - Invalid login credentials are rejected.
 - Student email is stored for the examination session.
 
-### 📋 Examination Instructions
+### Examination Instructions
 
 Before starting the examination, students can view:
 
@@ -40,19 +40,19 @@ Before starting the examination, students can view:
 - Examination rules
 - Camera monitoring requirements
 
-### 📷 Camera Monitoring
+### Camera Monitoring
 
 - Camera permission is requested before the examination.
 - Camera monitoring remains active during the examination.
 - The system detects camera access problems.
 - Suspicious camera-related activities can generate warnings.
 
-### ⏱️ Examination Timer
+### Examination Timer
 
 - The examination has a 60-minute timer.
 - The examination is automatically submitted when the time expires.
 
-### 💻 Coding Questions
+### Coding Questions
 
 The examination contains coding questions such as:
 
@@ -67,7 +67,7 @@ Students can:
 - Run code.
 - Submit code.
 
-### 🤖 Automated Code Evaluation
+### Automated Code Evaluation
 
 Code submissions are evaluated using the Judge0 code execution service.
 
@@ -79,13 +79,13 @@ The system can identify:
 - Runtime errors
 - Time limit exceeded errors
 
-### 📝 MCQ Section
+### MCQ Section
 
 The system contains 10 multiple-choice questions.
 
 Students must answer all MCQs before final submission.
 
-### ⚠️ Cheating Detection
+### Cheating Detection
 
 The system monitors activities such as:
 
@@ -101,7 +101,7 @@ A maximum of 5 warnings is allowed.
 
 After the warning limit is reached, the examination can be automatically submitted.
 
-### 📊 Result Page
+### Result Page
 
 After submission, the result page displays:
 
@@ -113,7 +113,7 @@ After submission, the result page displays:
 
 ---
 
-## 🛠️ Technologies Used
+## Technologies Used
 
 ### Frontend
 
@@ -145,7 +145,7 @@ After submission, the result page displays:
 
 ---
 
-## 🏗️ System Architecture
+## System Architecture
 
 ```text
                 ┌──────────────────────┐
