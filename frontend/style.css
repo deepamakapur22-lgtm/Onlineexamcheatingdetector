@@ -1,0 +1,785 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #080b10;
+    color: white;
+}
+
+
+/* =========================
+   TOP BAR
+========================= */
+
+.topbar {
+    height: 70px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 30px;
+
+    background: #0d1117;
+
+    border-bottom: 1px solid #242a33;
+
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    font-size: 22px;
+    font-weight: bold;
+    color: white;
+}
+
+
+.logo:first-letter {
+    color: white;
+}
+
+
+.exam-title {
+    font-size: 17px;
+    color: #c4cbd4;
+}
+
+
+.timer-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    background: #151a22;
+
+    border: 1px solid #2b323d;
+
+    padding: 9px 15px;
+
+    border-radius: 7px;
+}
+
+
+.timer-label {
+    color: #8f99a7;
+    font-size: 13px;
+}
+
+
+#timer {
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+}
+
+
+/* =========================
+   EXAM CONTAINER
+========================= */
+
+.exam-container {
+    display: flex;
+
+    width: 100%;
+
+    min-height: calc(100vh - 70px);
+
+    background:
+        radial-gradient(
+            circle at top left,
+            #121a25,
+            #080b10 45%
+        );
+}
+
+
+/* =========================
+   LEFT PANEL
+========================= */
+
+.left-panel {
+    width: 45%;
+
+    border-right: 1px solid #252c36;
+
+    overflow-y: auto;
+}
+
+
+.question-tabs {
+    display: flex;
+
+    background: #0e131a;
+
+    border-bottom: 1px solid #252c36;
+}
+
+
+.question-tab {
+    flex: 1;
+
+    padding: 16px 10px;
+
+    background: transparent;
+
+    color: #8993a1;
+
+    border: none;
+
+    cursor: pointer;
+
+    font-size: 14px;
+
+    border-bottom: 2px solid transparent;
+
+    transition: 0.2s;
+}
+
+
+.question-tab:hover {
+    color: white;
+
+    background: #131922;
+}
+
+
+.question-tab.active {
+    color: white;
+
+    border-bottom-color: white;
+
+    background: #151b24;
+}
+
+
+/* =========================
+   PROBLEM
+========================= */
+
+.problem {
+    padding: 30px;
+
+    line-height: 1.7;
+
+    color: #c5ccd6;
+}
+
+
+.problem h1,
+.problem h2,
+.problem h3 {
+    color: white;
+
+    margin-bottom: 15px;
+}
+
+
+.problem p {
+    margin-bottom: 15px;
+}
+
+
+.problem pre {
+    background: #0d1218;
+
+    border: 1px solid #252c35;
+
+    padding: 15px;
+
+    border-radius: 7px;
+
+    overflow-x: auto;
+
+    margin: 12px 0;
+}
+
+
+.problem code {
+    font-family: Consolas, monospace;
+
+    color: #dce2ea;
+}
+
+
+/* =========================
+   RIGHT PANEL
+========================= */
+
+.right-panel {
+    width: 55%;
+
+    display: flex;
+
+    flex-direction: column;
+
+    padding: 18px;
+
+    background: #090d12;
+}
+
+
+.editor-header {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    background: #11161e;
+
+    border: 1px solid #292f39;
+
+    border-bottom: none;
+
+    padding: 12px 15px;
+
+    border-radius: 8px 8px 0 0;
+}
+
+
+.editor-header span {
+    color: #dce2e9;
+
+    font-size: 14px;
+}
+
+
+.language-container {
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+}
+
+
+.language-container label {
+    color: #8e98a6;
+
+    font-size: 13px;
+}
+
+
+#languageSelect {
+    background: #171d26;
+
+    color: white;
+
+    border: 1px solid #343b46;
+
+    border-radius: 5px;
+
+    padding: 7px 10px;
+
+    outline: none;
+}
+
+
+/* =========================
+   CODE EDITOR
+========================= */
+
+.editor-wrapper {
+    display: flex;
+
+    height: 430px;
+
+    border: 1px solid #292f39;
+
+    background: #0b1016;
+
+    overflow: hidden;
+}
+
+
+.line-numbers {
+    width: 48px;
+
+    padding: 15px 8px;
+
+    text-align: right;
+
+    color: #515b69;
+
+    background: #0a0e13;
+
+    border-right: 1px solid #222832;
+
+    font-family: Consolas, monospace;
+
+    font-size: 14px;
+
+    line-height: 1.5;
+
+    overflow: hidden;
+
+    user-select: none;
+}
+
+
+#codeEditor {
+    flex: 1;
+
+    resize: none;
+
+    border: none;
+
+    outline: none;
+
+    background: #0b1016;
+
+    color: #e2e7ed;
+
+    padding: 15px;
+
+    font-family: Consolas, "Courier New", monospace;
+
+    font-size: 14px;
+
+    line-height: 1.5;
+
+    tab-size: 4;
+}
+
+
+#codeEditor::selection {
+    background: #364152;
+}
+
+
+/* =========================
+   INPUT / OUTPUT
+========================= */
+
+.io-section {
+    margin-top: 14px;
+}
+
+
+.io-section label {
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: #8d97a5;
+
+    font-size: 13px;
+}
+
+
+.io-box {
+    width: 100%;
+
+    min-height: 80px;
+
+    resize: vertical;
+
+    background: #0e131a;
+
+    border: 1px solid #292f39;
+
+    color: #dce2e8;
+
+    border-radius: 7px;
+
+    padding: 12px;
+
+    outline: none;
+
+    font-family: Consolas, monospace;
+
+    font-size: 13px;
+}
+
+
+.io-box:focus {
+    border-color: #596473;
+}
+
+
+/* =========================
+   BUTTONS
+========================= */
+
+.button-area {
+    display: flex;
+
+    gap: 10px;
+
+    margin-top: 15px;
+}
+
+
+.run-button,
+.submit-code-button {
+    border: none;
+
+    border-radius: 7px;
+
+    padding: 12px 22px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+
+.run-button {
+    background: #222a35;
+
+    color: white;
+
+    border: 1px solid #39424f;
+}
+
+
+.run-button:hover {
+    background: #2d3744;
+}
+
+
+.submit-code-button {
+    background: white;
+
+    color: #111;
+
+    flex: 1;
+}
+
+
+.submit-code-button:hover {
+    background: #e5e5e5;
+}
+
+
+/* =========================
+   STATUS
+========================= */
+
+.coding-status {
+    margin-top: 10px;
+
+    padding: 9px 12px;
+
+    background: #11161e;
+
+    border: 1px solid #292f39;
+
+    border-radius: 6px;
+
+    color: #8e98a6;
+
+    font-size: 13px;
+}
+
+
+/* =========================
+   MCQ SECTION
+========================= */
+
+.mcq-section {
+    display: none;
+
+    min-height: calc(100vh - 70px);
+
+    background: #0b0f14;
+
+    padding: 35px 8% 60px;
+
+    overflow-y: auto;
+}
+
+
+.mcq-header {
+    max-width: 900px;
+
+    margin: 0 auto 30px;
+
+    text-align: center;
+}
+
+
+.mcq-header h1 {
+    color: white;
+
+    margin-bottom: 8px;
+}
+
+
+.mcq-header p {
+    color: #858f9d;
+
+    font-size: 14px;
+}
+
+
+.mcq-container {
+    max-width: 900px;
+
+    margin: auto;
+}
+
+
+.mcq-card {
+    background: #11161e;
+
+    border: 1px solid #292f39;
+
+    border-radius: 10px;
+
+    padding: 20px;
+
+    margin-bottom: 18px;
+}
+
+
+.mcq-card h3 {
+    color: #e5e9ee;
+
+    font-size: 16px;
+
+    margin-bottom: 12px;
+
+    line-height: 1.5;
+}
+
+
+.mcq-option {
+    display: block;
+
+    padding: 11px 13px;
+
+    margin-top: 8px;
+
+    border: 1px solid #2c333e;
+
+    border-radius: 7px;
+
+    color: #b8c0cb;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+
+.mcq-option:hover {
+    background: #171d25;
+
+    border-color: #4b5563;
+
+    color: white;
+}
+
+
+.mcq-option input {
+    margin-right: 9px;
+
+    cursor: pointer;
+}
+
+
+/* =========================
+   MCQ SUBMIT
+========================= */
+
+.mcq-submit-area {
+    text-align: center;
+
+    padding: 25px 20px 60px;
+}
+
+
+#mcqSubmitButton {
+    background: white;
+
+    color: #111;
+
+    border: none;
+
+    padding: 14px 42px;
+
+    border-radius: 8px;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+
+#mcqSubmitButton:hover {
+    background: #e6e6e6;
+
+    transform: translateY(-1px);
+}
+
+
+/* =========================
+   WARNING
+========================= */
+
+.warning-box {
+    display: none;
+
+    position: fixed;
+
+    top: 90px;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    z-index: 5000;
+
+    width: min(500px, 90%);
+
+    background: #17130e;
+
+    border: 1px solid #66502d;
+
+    color: #f1d7a4;
+
+    padding: 18px 22px;
+
+    border-radius: 9px;
+
+    text-align: center;
+
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.45);
+
+    font-size: 14px;
+}
+
+
+/* =========================
+   CAMERA
+========================= */
+
+#camera {
+    position: fixed;
+
+    width: 1px;
+
+    height: 1px;
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    left: -100px;
+
+    top: -100px;
+}
+
+
+/* =========================
+   SCROLLBAR
+========================= */
+
+::-webkit-scrollbar {
+    width: 8px;
+
+    height: 8px;
+}
+
+
+::-webkit-scrollbar-track {
+    background: #090d12;
+}
+
+
+::-webkit-scrollbar-thumb {
+    background: #303844;
+
+    border-radius: 10px;
+}
+
+
+::-webkit-scrollbar-thumb:hover {
+    background: #414b59;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 900px) {
+
+    .exam-container {
+        flex-direction: column;
+    }
+
+    .left-panel,
+    .right-panel {
+        width: 100%;
+    }
+
+    .left-panel {
+        border-right: none;
+
+        border-bottom: 1px solid #252c36;
+    }
+
+    .editor-wrapper {
+        height: 350px;
+    }
+
+    .exam-title {
+        display: none;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .topbar {
+        padding: 0 12px;
+    }
+
+    .logo {
+        font-size: 18px;
+    }
+
+    .timer-container {
+        padding: 7px 9px;
+    }
+
+    .timer-label {
+        display: none;
+    }
+
+    .problem {
+        padding: 20px;
+    }
+
+    .right-panel {
+        padding: 10px;
+    }
+
+    .button-area {
+        flex-direction: column;
+    }
+
+}

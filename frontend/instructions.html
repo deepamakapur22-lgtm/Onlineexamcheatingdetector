@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Exam Instructions - CodeNexus</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #0d1117;
+            color: #ffffff;
+            min-height: 100vh;
+        }
+
+        .header {
+            height: 65px;
+            background: #161b22;
+            border-bottom: 1px solid #30363d;
+            display: flex;
+            align-items: center;
+            padding: 0 30px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: #ffffff;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            margin: 35px auto;
+        }
+
+        .title {
+            font-size: 30px;
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            color: #8b949e;
+            margin-bottom: 30px;
+        }
+
+        .summary {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .card {
+            background: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 8px;
+            padding: 22px;
+            text-align: center;
+        }
+
+        .card h2 {
+            color: #58a6ff;
+            font-size: 28px;
+            margin-bottom: 7px;
+        }
+
+        .card p {
+            color: #8b949e;
+        }
+
+        .section {
+            background: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 20px;
+        }
+
+        .section h2 {
+            font-size: 20px;
+            margin-bottom: 18px;
+        }
+
+        .section p {
+            color: #c9d1d9;
+            line-height: 1.7;
+            margin-bottom: 10px;
+        }
+
+        .rules {
+            padding-left: 22px;
+        }
+
+        .rules li {
+            margin-bottom: 10px;
+            color: #c9d1d9;
+        }
+
+        .camera-box {
+            border: 1px solid #30363d;
+            border-radius: 8px;
+            padding: 20px;
+            background: #0d1117;
+        }
+
+        .camera-status {
+            margin-top: 15px;
+            padding: 12px;
+            border-radius: 6px;
+            background: #21262d;
+            color: #f85149;
+            text-align: center;
+        }
+
+        .camera-status.granted {
+            color: #3fb950;
+            background: rgba(46, 160, 67, 0.12);
+            border: 1px solid #238636;
+        }
+
+        .camera-button,
+        .start-button {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+
+        .camera-button {
+            background: #238636;
+            color: white;
+        }
+
+        .camera-button:hover {
+            background: #2ea043;
+        }
+
+        .camera-button:disabled {
+            background: #30363d;
+            color: #8b949e;
+            cursor: not-allowed;
+        }
+
+        .start-button {
+            background: #1f6feb;
+            color: white;
+        }
+
+        .start-button:hover {
+            background: #388bfd;
+        }
+
+        .start-button:disabled {
+            background: #30363d;
+            color: #8b949e;
+            cursor: not-allowed;
+        }
+
+        .status-list {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .status-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #c9d1d9;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .green {
+            background: #3fb950;
+        }
+
+        .red {
+            background: #f85149;
+        }
+
+        .yellow {
+            background: #d29922;
+        }
+
+        .note {
+            color: #8b949e;
+            font-size: 14px;
+            margin-top: 12px;
+        }
+
+        .error {
+            color: #f85149;
+            margin-top: 12px;
+            text-align: center;
+        }
+
+        /* Camera is completely invisible */
+        #camera {
+            display: none;
+        }
+
+        @media (max-width: 700px) {
+            .summary {
+                grid-template-columns: 1fr;
+            }
+
+            .container {
+                width: 94%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header class="header">
+    <div class="logo">CodeNexus</div>
+</header>
+
+<div class="container">
+
+    <h1 class="title">Exam Instructions</h1>
+
+    <p class="subtitle">
+        Please read all instructions carefully before starting your examination.
+    </p>
+
+    <!-- EXAM SUMMARY -->
+    <div class="summary">
+
+        <div class="card">
+            <h2>60</h2>
+            <p>Minutes</p>
+        </div>
+
+        <div class="card">
+            <h2>12</h2>
+            <p>Total Questions</p>
+        </div>
+
+        <div class="card">
+            <h2>2 + 10</h2>
+            <p>Coding + MCQ</p>
+        </div>
+
+    </div>
+
+    <!-- HOW TO START -->
+    <div class="section">
+
+        <h2>How to Start</h2>
+
+        <p>1. Allow camera access using the button below.</p>
+
+        <p>2. The camera will remain active during the examination.</p>
+
+        <p>3. The camera preview will remain invisible on the screen.</p>
+
+        <p>4. After camera permission is granted, click Start Examination.</p>
+
+        <p>5. The examination timer will start immediately.</p>
+
+    </div>
+
+    <!-- QUESTIONS -->
+    <div class="section">
+
+        <h2>Exam Pattern</h2>
+
+        <p>
+            <strong>2 Coding Questions</strong> – Solve programming problems
+            using the provided code editor.
+        </p>
+
+        <p>
+            <strong>10 MCQ Questions</strong> – Select the correct answer.
+        </p>
+
+    </div>
+
+    <!-- ANSWER STATUS -->
+    <div class="section">
+
+        <h2>Question Status</h2>
+
+        <div class="status-list">
+
+            <div class="status-item">
+                <div class="dot green"></div>
+                Answered
+            </div>
+
+            <div class="status-item">
+                <div class="dot red"></div>
+                Skipped
+            </div>
+
+            <div class="status-item">
+                <div class="dot yellow"></div>
+                Waiting
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- RULES -->
+    <div class="section">
+
+        <h2>Important Rules</h2>
+
+        <ul class="rules">
+
+            <li>Do not close or refresh the examination page.</li>
+
+            <li>Do not switch to another tab during the examination.</li>
+
+            <li>Camera access must remain available throughout the exam.</li>
+
+            <li>Significant face/head movement may generate a warning.</li>
+
+            <li>If the camera becomes unavailable, a warning will be displayed.</li>
+
+            <li>The exam will automatically submit when the timer reaches zero.</li>
+
+        </ul>
+
+    </div>
+
+    <!-- CAMERA -->
+    <div class="section">
+
+        <h2>Camera Verification</h2>
+
+        <div class="camera-box">
+
+            <p>
+                Camera access is required before starting the examination.
+            </p>
+
+            <button
+                id="cameraButton"
+                class="camera-button"
+                onclick="requestCameraAccess()">
+                Allow Camera Access
+            </button>
+
+            <div
+                id="cameraStatus"
+                class="camera-status">
+                Camera access not granted
+            </div>
+
+            <div
+                id="cameraError"
+                class="error">
+            </div>
+
+            <!-- Invisible camera -->
+            <video
+                id="camera"
+                autoplay
+                muted
+                playsinline>
+            </video>
+
+        </div>
+
+    </div>
+
+    <!-- START EXAM -->
+    <button
+        id="startExamButton"
+        class="start-button"
+        onclick="startActualExam()"
+        disabled>
+        Start Examination
+    </button>
+
+</div>
+
+
+<script>
+
+let cameraStream = null;
+let cameraGranted = false;
+
+
+/* =========================================
+   REQUEST CAMERA PERMISSION
+   THIS IS THE ONLY PLACE WHERE
+   THE USER IS ASKED FOR CAMERA PERMISSION
+========================================= */
+
+async function requestCameraAccess() {
+
+    const cameraButton = document.getElementById("cameraButton");
+    const cameraStatus = document.getElementById("cameraStatus");
+    const cameraError = document.getElementById("cameraError");
+    const startButton = document.getElementById("startExamButton");
+    const video = document.getElementById("camera");
+
+    cameraError.textContent = "";
+
+    try {
+
+        cameraButton.disabled = true;
+        cameraButton.textContent = "Requesting Camera...";
+
+        cameraStream = await navigator.mediaDevices.getUserMedia({
+            video: true,
+            audio: false
+        });
+
+        video.srcObject = cameraStream;
+
+        cameraGranted = true;
+
+        sessionStorage.setItem(
+            "cameraPermission",
+            "granted"
+        );
+
+        cameraStatus.textContent =
+            "✓ Camera access granted. Camera is active.";
+
+        cameraStatus.classList.add("granted");
+
+        cameraButton.textContent =
+            "Camera Access Granted";
+
+        startButton.disabled = false;
+
+    } catch (error) {
+
+        cameraGranted = false;
+
+        cameraButton.disabled = false;
+
+        cameraButton.textContent =
+            "Allow Camera Access";
+
+        cameraStatus.textContent =
+            "Camera access not granted";
+
+        cameraError.textContent =
+            "Camera access is required to start the examination.";
+
+        sessionStorage.removeItem("cameraPermission");
+
+        console.error(error);
+    }
+}
+
+
+/* =========================================
+   START EXAM
+========================================= */
+
+function startActualExam() {
+
+    if (!cameraGranted) {
+
+        alert("Please allow camera access before starting the exam.");
+
+        return;
+    }
+
+    if (
+        sessionStorage.getItem("examStarted") !== "true"
+    ) {
+
+        alert("Please login before starting the examination.");
+
+        return;
+    }
+
+    if (
+        !sessionStorage.getItem("examEmail")
+    ) {
+
+        alert("Please login before starting the examination.");
+
+        return;
+    }
+
+    /*
+       IMPORTANT:
+
+       DO NOT STOP THE CAMERA HERE.
+
+       We keep the permission information in
+       sessionStorage.
+
+       exam.html will reconnect to the camera
+       silently without showing another
+       permission popup.
+    */
+
+    window.location.href = "exam.html";
+}
+
+
+/* =========================================
+   IF USER LEAVES THIS PAGE
+========================================= */
+
+window.addEventListener("beforeunload", function () {
+
+    /*
+       Do not manually stop the stream here.
+
+       The browser will release the old page's
+       stream automatically when the page changes.
+    */
+
+});
+
+</script>
+
+</body>
+</html>

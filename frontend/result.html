@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exam Result - CodeNexus</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background: radial-gradient(circle at top, #17202b, #080b0f 70%);
+            color: white;
+        }
+
+        .topbar {
+            height: 70px;
+            background: #0d1117;
+            border-bottom: 1px solid #292f39;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 40px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: #ffffff;
+        }
+
+        .status {
+            color: #8f99a6;
+            font-size: 14px;
+        }
+
+        .result-container {
+            width: 90%;
+            max-width: 900px;
+            margin: 50px auto;
+        }
+
+        .result-card {
+            background: #11161e;
+            border: 1px solid #292f39;
+            border-radius: 14px;
+            padding: 40px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.35);
+        }
+
+        .result-title {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .result-title h1 {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .result-title p {
+            color: #8f99a6;
+            font-size: 15px;
+        }
+
+        .student-info {
+            background: #0b0f14;
+            border: 1px solid #292f39;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 25px;
+        }
+
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 13px 5px;
+            border-bottom: 1px solid #242a33;
+        }
+
+        .info-row:last-child {
+            border-bottom: none;
+        }
+
+        .info-label {
+            color: #8f99a6;
+        }
+
+        .info-value {
+            color: white;
+            font-weight: bold;
+        }
+
+        .score-section {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .score-box {
+            background: #0b0f14;
+            border: 1px solid #292f39;
+            border-radius: 10px;
+            padding: 25px 15px;
+            text-align: center;
+        }
+
+        .score-box h2 {
+            font-size: 28px;
+            margin-bottom: 8px;
+        }
+
+        .score-box p {
+            color: #8f99a6;
+            font-size: 14px;
+        }
+
+        .message {
+            text-align: center;
+            background: #0b0f14;
+            border: 1px solid #292f39;
+            border-radius: 10px;
+            padding: 20px;
+            color: #b8c0cb;
+            margin-bottom: 25px;
+        }
+
+        .button-area {
+            text-align: center;
+        }
+
+        .logout-button {
+            background: white;
+            color: #111;
+            border: none;
+            padding: 13px 35px;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .logout-button:hover {
+            background: #dddddd;
+        }
+
+        @media (max-width: 700px) {
+            .topbar {
+                padding: 0 20px;
+            }
+
+            .result-card {
+                padding: 25px;
+            }
+
+            .score-section {
+                grid-template-columns: 1fr;
+            }
+
+            .info-row {
+                flex-direction: column;
+                gap: 6px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="topbar">
+        <div class="logo">&lt;/&gt; CodeNexus</div>
+        <div class="status">Examination Result</div>
+    </header>
+
+    <main class="result-container">
+
+        <div class="result-card">
+
+            <div class="result-title">
+                <h1>Exam Result</h1>
+                <p>Your examination has been submitted successfully.</p>
+            </div>
+
+            <!-- Student Information -->
+            <div class="student-info">
+
+                <div class="info-row">
+                    <span class="info-label">Student Email ID</span>
+                    <span class="info-value" id="studentEmail">
+                        Loading...
+                    </span>
+                </div>
+
+                <div class="info-row">
+                    <span class="info-label">Exam</span>
+                    <span class="info-value">
+                        Online Examination
+                    </span>
+                </div>
+
+                <div class="info-row">
+                    <span class="info-label">Status</span>
+                    <span class="info-value">
+                        Submitted
+                    </span>
+                </div>
+
+            </div>
+
+            <!-- Scores -->
+            <div class="score-section">
+
+                <div class="score-box">
+                    <h2 id="codingScore">0 / 2</h2>
+                    <p>Coding Questions</p>
+                </div>
+
+                <div class="score-box">
+                    <h2 id="mcqScore">0 / 10</h2>
+                    <p>MCQ Score</p>
+                </div>
+
+                <div class="score-box">
+                    <h2 id="totalScore">0 / 12</h2>
+                    <p>Total Score</p>
+                </div>
+
+            </div>
+
+            <div class="message">
+                Thank you for attending the CodeNexus online examination.
+            </div>
+
+            <div class="button-area">
+                <button class="logout-button" onclick="logout()">
+                    Back to Login
+                </button>
+            </div>
+
+        </div>
+
+    </main>
+
+    <script>
+
+        // Get student email from login session
+        const studentEmail =
+            sessionStorage.getItem("examEmail") ||
+            sessionStorage.getItem("studentEmail") ||
+            "Not available";
+
+        document.getElementById("studentEmail").textContent = studentEmail;
+
+
+        // Get result information
+        const codingSolved =
+            parseInt(sessionStorage.getItem("codingSolved") || "0");
+
+        const mcqScore =
+            parseInt(sessionStorage.getItem("mcqScore") || "0");
+
+        const totalScore = codingSolved + mcqScore;
+
+
+        // Display scores
+        document.getElementById("codingScore").textContent =
+            codingSolved + " / 2";
+
+        document.getElementById("mcqScore").textContent =
+            mcqScore + " / 10";
+
+        document.getElementById("totalScore").textContent =
+            totalScore + " / 12";
+
+
+        // Logout / return to login
+        function logout() {
+
+            sessionStorage.clear();
+
+            window.location.href = "index.html";
+        }
+
+    </script>
+
+</body>
+</html>

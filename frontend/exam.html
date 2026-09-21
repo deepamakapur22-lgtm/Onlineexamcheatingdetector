@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CodeNexus - Online Examination</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="topbar">
+
+    <div class="logo">
+        &lt;/&gt;
+        <span>CodeNexus</span>
+    </div>
+
+    <div class="exam-title">
+        Online Examination
+    </div>
+
+    <div class="timer-container">
+        <span class="timer-label">Time Remaining</span>
+        <span id="timer">60:00</span>
+    </div>
+
+</header>
+
+
+<main class="exam-container">
+
+    <!-- LEFT SIDE -->
+    <section class="left-panel">
+
+        <div class="question-tabs">
+
+            <button
+                class="question-tab active"
+                onclick="showCodingQuestion(0)">
+                Coding 1
+            </button>
+
+            <button
+                class="question-tab"
+                onclick="showCodingQuestion(1)">
+                Coding 2
+            </button>
+
+            <button
+                class="question-tab"
+                onclick="showMCQs()">
+                MCQs
+            </button>
+
+        </div>
+
+
+        <div id="problem" class="problem"></div>
+
+    </section>
+
+
+    <!-- RIGHT SIDE -->
+    <section class="right-panel">
+
+        <div class="editor-header">
+
+            <div>
+                <span>Code Editor</span>
+            </div>
+
+            <div class="language-container">
+
+                <label for="languageSelect">
+                    Language:
+                </label>
+
+                <select id="languageSelect">
+
+                    <option value="54">
+                        C++17
+                    </option>
+
+                    <option value="50">
+                        C
+                    </option>
+
+                    <option value="62">
+                        Java
+                    </option>
+
+                    <option value="71">
+                        Python 3
+                    </option>
+
+                    <option value="63">
+                        JavaScript
+                    </option>
+
+                    <option value="51">
+                        C#
+                    </option>
+
+                    <option value="78">
+                        Kotlin
+                    </option>
+
+                    <option value="73">
+                        Rust
+                    </option>
+
+                    <option value="68">
+                        PHP
+                    </option>
+
+                    <option value="74">
+                        TypeScript
+                    </option>
+
+                    <option value="60">
+                        Go
+                    </option>
+
+                    <option value="72">
+                        Ruby
+                    </option>
+
+                </select>
+
+            </div>
+
+        </div>
+
+
+        <div class="editor-wrapper">
+
+            <div
+                id="lineNumbers"
+                class="line-numbers">
+                1
+            </div>
+
+            <textarea
+                id="codeEditor"
+                spellcheck="false"
+                autocomplete="off"
+                autocorrect="off"
+                autocapitalize="off"
+                placeholder="Write your code here..."></textarea>
+
+        </div>
+
+
+        <div class="io-section">
+
+            <label for="testInput">
+                Test Input
+            </label>
+
+            <textarea
+                id="testInput"
+                class="io-box"
+                placeholder="Enter test input..."></textarea>
+
+        </div>
+
+
+        <div class="io-section">
+
+            <label for="output">
+                Output
+            </label>
+
+            <textarea
+                id="output"
+                class="io-box"
+                readonly
+                placeholder="Program output will appear here..."></textarea>
+
+        </div>
+
+
+        <div class="button-area">
+
+            <button
+                class="run-button"
+                onclick="runCode()">
+                ▶ Run Code
+            </button>
+
+            <button
+                class="submit-code-button"
+                onclick="submitCodingQuestion()">
+                ✓ Submit Code
+            </button>
+
+        </div>
+
+
+        <div
+            id="codingStatus"
+            class="coding-status">
+            Ready
+        </div>
+
+    </section>
+
+</main>
+
+
+<!-- MCQ SECTION -->
+
+<section
+    id="mcqSection"
+    class="mcq-section">
+
+    <div class="mcq-header">
+
+        <h1>
+            Multiple Choice Questions
+        </h1>
+
+        <p>
+            Answer all 10 questions before submitting the examination.
+        </p>
+
+    </div>
+
+
+    <div
+        id="mcqContainer"
+        class="mcq-container">
+    </div>
+
+
+    <div class="mcq-submit-area">
+
+        <button
+            type="button"
+            id="mcqSubmitButton"
+            onclick="submitMCQExam()">
+
+            Submit Exam
+
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- HIDDEN CAMERA -->
+
+<video
+    id="camera"
+    autoplay
+    muted
+    playsinline>
+</video>
+
+
+<!-- WARNING -->
+
+<div
+    id="warningBox"
+    class="warning-box">
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>

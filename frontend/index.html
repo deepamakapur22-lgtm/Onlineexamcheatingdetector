@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CodeNexus | Login</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background: #f2f2f2;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .login-card {
+            width: 308px;
+            background: white;
+
+            border-radius: 16px;
+
+            padding: 20px;
+
+            box-shadow:
+                0 3px 8px rgba(0, 0, 0, 0.18),
+                0 10px 25px rgba(0, 0, 0, 0.10);
+
+            text-align: center;
+        }
+
+        /* LOGO */
+
+        .logo {
+            width: 50px;
+            height: 50px;
+
+            margin: 0 auto 8px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            font-size: 38px;
+            font-weight: bold;
+
+            color: #111;
+
+            position: relative;
+        }
+
+        .logo::before {
+            content: "<";
+
+            position: absolute;
+
+            left: 7px;
+            top: 2px;
+
+            color: #111;
+
+            transform: rotate(-10deg);
+        }
+
+        .logo::after {
+            content: ">";
+
+            position: absolute;
+
+            right: 5px;
+            top: 4px;
+
+            color: #f59e0b;
+
+            transform: rotate(10deg);
+        }
+
+        .brand {
+            font-size: 18px;
+            color: #111;
+
+            margin-bottom: 16px;
+        }
+
+        /* INPUTS */
+
+        .input-box {
+            width: 100%;
+
+            height: 30px;
+
+            border: 1px solid #ddd;
+
+            border-radius: 6px;
+
+            padding: 0 10px;
+
+            margin-bottom: 13px;
+
+            font-size: 11px;
+
+            outline: none;
+        }
+
+        .input-box:focus {
+            border-color: #999;
+        }
+
+        .input-box::placeholder {
+            color: #777;
+        }
+
+        /* ERROR */
+
+        #loginError {
+            color: #d93025;
+
+            font-size: 11px;
+
+            min-height: 15px;
+
+            margin-bottom: 4px;
+        }
+
+        /* SIGN IN */
+
+        .signin-button {
+            width: 100%;
+
+            height: 29px;
+
+            background: #1f1f1f;
+
+            color: white;
+
+            border: none;
+
+            border-radius: 6px;
+
+            font-size: 12px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            margin-bottom: 16px;
+        }
+
+        .signin-button:hover {
+            background: #000;
+        }
+
+        /* TERMS */
+
+        .terms {
+            font-size: 10px;
+
+            color: #666;
+
+            line-height: 1.5;
+
+            margin-bottom: 20px;
+        }
+
+        .terms a {
+            color: #087ee4;
+
+            text-decoration: none;
+        }
+
+        /* SOCIAL */
+
+        .social-title {
+            font-size: 10px;
+
+            color: #888;
+
+            margin-bottom: 13px;
+        }
+
+        .social-icons {
+            display: flex;
+
+            justify-content: center;
+
+            gap: 14px;
+        }
+
+        .social {
+            width: 20px;
+            height: 20px;
+
+            border-radius: 50%;
+
+            background: #777;
+
+            color: white;
+
+            display: flex;
+
+            justify-content: center;
+            align-items: center;
+
+            font-size: 10px;
+
+            font-weight: bold;
+        }
+
+        /* FOOTER */
+
+        .footer {
+            margin-top: 15px;
+
+            font-size: 8px;
+
+            color: #999;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div class="login-card">
+
+        <!-- LOGO -->
+
+        <div class="logo"></div>
+
+        <div class="brand">
+            CodeNexus
+        </div>
+
+
+        <!-- LOGIN FORM -->
+
+        <form id="loginForm">
+
+            <input
+                type="email"
+                id="email"
+                class="input-box"
+                placeholder="Username or E-mail"
+                required
+            >
+
+            <input
+                type="password"
+                id="password"
+                class="input-box"
+                placeholder="Password"
+                required
+            >
+
+
+            <!-- ERROR MESSAGE -->
+
+            <p id="loginError"></p>
+
+
+            <!-- SIGN IN BUTTON -->
+
+            <button
+                type="submit"
+                class="signin-button">
+
+                Sign In
+
+            </button>
+
+        </form>
+
+
+        <!-- TERMS -->
+
+        <div class="terms">
+
+            By continuing, you agree to
+            <a href="#">Terms</a>
+            &
+            <a href="#">Privacy Policy</a>.
+
+        </div>
+
+
+        <!-- SOCIAL LOGIN -->
+
+        <div class="social-title">
+
+            or you can sign in with
+
+        </div>
+
+        <div class="social-icons">
+
+            <div class="social">
+                G
+            </div>
+
+            <div class="social">
+                ◉
+            </div>
+
+            <div class="social">
+                ●
+            </div>
+
+            <div class="social">
+                in
+            </div>
+
+        </div>
+
+
+        <div class="footer">
+
+            Secure Coding Assessment Platform
+
+        </div>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
